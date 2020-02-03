@@ -1,0 +1,62 @@
+﻿@using BusinessLogic.Models;
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="year">Year</label>
+            <input type="number" class="form-control" id="year">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="manufacturer">Manufacturer</label>
+            <select id="manufacturer" class="form-control" asp-items="Html.GetEnumSelectList<ManufacturerEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <button class="car-search btn btn-primary">Search</button>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <button class="create-car btn btn-primary">Create new car</button>
+        </div>
+        <div class="col">
+            <button class="create-random-car btn btn-primary">Create random 50 cars</button>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <table name="example" id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Manufacturer</th>
+                        <th>Model</th>
+                        <th>Photo</th>
+                        <th>Year</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="/js/car.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="    https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+}

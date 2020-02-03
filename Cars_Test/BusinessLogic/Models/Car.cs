@@ -22,7 +22,7 @@ namespace BusinessLogic.Models
     public enum ManufacturerEnum
     {
         Bmw,
-        Mersedes,
+        Mercedes,
         Audi
     }
 }

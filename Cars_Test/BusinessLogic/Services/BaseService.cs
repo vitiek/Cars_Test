@@ -81,6 +81,16 @@ namespace BusinessLogic.Services
         {
             return dbset.Skip(skip).Take(take);
         }
+
+        public virtual void AddMany(List<T> entitys)
+        {
+            foreach (var ent in entitys)
+            {
+                dbset.Add(ent);
+            }
+
+            dataContext.SaveChanges();
+        }
     }
 
     public interface IService<T> where T : class
@@ -95,5 +105,6 @@ namespace BusinessLogic.Services
         IQueryable<T> GetAll();
         IQueryable<T> GetMany(Expression<Func<T, bool>> where);
         IQueryable<T> GetPage(int skip, int take);
+        void AddMany(List<T> entitys);
     }
 }

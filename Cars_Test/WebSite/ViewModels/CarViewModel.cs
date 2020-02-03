@@ -11,14 +11,23 @@ namespace WebSite.ViewModels
     {
         public int Id { get; set; }
 
-        public ManufacturerEnum Manufacturer { get; set; }
+        [Required]
+        public string Manufacturer { get; set; }
 
+        [Required]
+        [StringLength(30, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
         public string Model { get; set; }
 
+        [Display(Name = "Image URL")]
+        [RegularExpression("(https|http)://(.+)(.jpg|.png)$", ErrorMessage = "Image url not correct")]
         public string ImageUrl { get; set; }
 
+        [Required]
+        [CorrectYear]
         public int? Year { get; set; }
 
+        [Required]
+        [DataType(DataType.Currency)]
         public double Price { get; set; }
     }
 

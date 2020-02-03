@@ -12,7 +12,7 @@ namespace WebSite.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return Redirect("/Car/CarReview");
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,21 @@
+﻿@model WebSite.ViewModels.CarViewModel
+
+@{
+    Layout = null;
+}
+
+<form asp-controller="Car" asp-action="DeleteCar">
+    <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Delete Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    </div>
+    <div class="modal-body">
+        <div data-validation-error-paceholder />
+        <p>Are you sure you want to delete the car "@Model.Manufacturer" "@Model.Model"?</p>
+        <input type="hidden" asp-for="Id" />
+    </div>
+    <div class="modal-footer text-right">
+        <button class="btn btn-primary" type="submit" data-loading-text="Deleting...">Yes</button>
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+    </div>
+</form>

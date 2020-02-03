@@ -1,0 +1,67 @@
+﻿@model WebSite.ViewModels.CarViewModel
+@using BusinessLogic.Models;
+
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    @if (Model.Id == 0)
+    {
+        <h5 class="modal-title">Create car</h5>
+    }
+    else
+    {
+        <h5 class="modal-title">Update car info</h5>
+    }
+    <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </a>
+</div>
+
+<div class="modal-body">
+    <form asp-controller="Car" asp-action="CreateUpdateCar" method="post" role="form">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div data-validation-error-paceholder></div>
+
+        <input asp-for="@Model.Id" type="hidden" />
+
+        <div class="form-group required">
+            <label asp-for="Manufacturer" class="control-label"></label>
+            <select asp-for="Manufacturer" class="form-control">
+                <option value="">Please select</option>
+                @{
+                    var items = Html.GetEnumSelectList<ManufacturerEnum>();
+                    foreach (var i in items)
+                    {
+                        <option value="@i.Text">@i.Text</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="Manufacturer" class="text-danger"></span>
+        </div>
+        <div class="form-group required">
+            <label asp-for="Model" class="control-label"></label>
+            <input asp-for="Model" placeholder="@Html.DisplayNameFor(m=>m.Model)" class="form-control" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+        <div class="form-group required">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" placeholder="@Html.DisplayNameFor(m=>m.Price)" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group required">
+            <label asp-for="Year" class="control-label"></label>
+            <input asp-for="Year" placeholder="@Html.DisplayNameFor(m=>m.Year)" class="form-control" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+        <div class="form-group required">
+            <label asp-for="ImageUrl" class="control-label"></label>
+            <input asp-for="ImageUrl" placeholder="@Html.DisplayNameFor(m=>m.ImageUrl)" class="form-control" />
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+
+    </form>
+</div>

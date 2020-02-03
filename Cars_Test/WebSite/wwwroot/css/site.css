@@ -7,6 +7,16 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.img-datatbles {
+    max-height: 250px;
+    max-width: 250px;
+    height: auto;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
